@@ -1,0 +1,18 @@
+{
+  "theme": "Modern Koyu",
+  "animation": "Daktilo",
+  "interval": 30,
+  "display_duration": 11,
+  "opacity": 95,
+  "width": 400,
+  "height": 160,
+  "position_x": 140,
+  "position_y": 136,
+  "start_with_windows": false,
+  "font_size": 28,
+  "sentence_font_size": 13,
+  "selected_lists": [
+    "IELTS"
+  ],
+  "border": "Orta"
+}
