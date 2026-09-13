@@ -50,7 +50,7 @@ CUSTOM_LISTS_FILE = os.path.join(APP_DIR, "custom_lists.json")
 
 # ─── Sabitler ─────────────────────────────────────────────────────────────────
 
-MONO_FONT = "Consolas"
+MONO_FONT = "Montserrat Bold"
 
 THEMES = {
     "Modern Koyu": {"bg": "#1E1E2E", "fg": "#CDD6F4", "accent": "#89B4FA", "panel": "#313244"},
