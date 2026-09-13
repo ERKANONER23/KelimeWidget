@@ -1,0 +1,18 @@
+{
+  "theme": "Modern Koyu",
+  "animation": "Daktilo",
+  "interval": 30,
+  "display_duration": 11,
+  "opacity": 80,
+  "width": 500,
+  "height": 200,
+  "position_x": 100,
+  "position_y": 100,
+  "start_with_windows": false,
+  "font_size": 28,
+  "sentence_font_size": 13,
+  "selected_lists": [
+    "Kullanıcı Listesi"
+  ],
+  "border": "Orta"
+}

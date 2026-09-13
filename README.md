@@ -15,7 +15,7 @@ Masaüstünüzde çalışan, otomatik kelime gösteren şık bir öğrenme arac�
 
 ## 📥 İndirme
 
-[**Windows EXE İndir**](https://github.com/ERKANONER23/KelimeWidget/releases/download/v1/KelimeWidget.exe)
+[**Windows EXE İndir**](https://github.com/ERKANONER23/KelimeWidget/releases/download/KelimeWidget.v.1.0.1/KelimeWidget.exe)
 
 ## 🚀 Kullanım
 
