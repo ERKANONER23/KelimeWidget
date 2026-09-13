@@ -303,6 +303,98 @@ def smart_fit_text(text, max_width_px, max_height_px, font_name, max_font=80, mi
     1. Tek satırda en büyük fontu bul (binary search)
     2. Metni boşluktan ikiye böl, 2 satır için en büyük fontu bul
     3. Hangisi DAHA BÜYÜK font veriyorsa onu seç
+    4. GÜVENLİK KONTROLÜ: Gerçek ölçümle test et, sığmıyorsa küçült
+    
+    ASLA widget boyutunu geçmez.
+    """
+    if not text:
+        return 10, "", 1
+    
+    # ── AŞAMA 1: Tek satırda en büyük fontu bul ──
+    low = min_font
+    high = max_font
+    best_single_font = min_font
+    
+    while low <= high:
+        mid_font = (low + high) // 2
+        width = measure_text_width(text, font_name, mid_font, bold=False)
+        line_h = get_line_height(font_name, mid_font)
+        
+        if width <= max_width_px and line_h <= max_height_px:
+            best_single_font = mid_font
+            low = mid_font + 1
+        else:
+            high = mid_font - 1
+    
+    single_result = (best_single_font, text, 1)
+    
+    # ── AŞAMA 2: 2 satıra böl (boşluklardan) ──
+    words = text.split(' ')
+    
+    if len(words) <= 1:
+        return single_result
+    
+    mid_idx = len(words) // 2
+    line1 = ' '.join(words[:mid_idx])
+    line2 = ' '.join(words[mid_idx:])
+    
+    low = min_font
+    high = max_font
+    best_double_font = min_font
+    
+    while low <= high:
+        mid_font = (low + high) // 2
+        w1 = measure_text_width(line1, font_name, mid_font, bold=False)
+        w2 = measure_text_width(line2, font_name, mid_font, bold=False)
+        line_h = get_line_height(font_name, mid_font)
+        
+        if w1 <= max_width_px and w2 <= max_width_px and line_h * 2 <= max_height_px:
+            best_double_font = mid_font
+            low = mid_font + 1
+        else:
+            high = mid_font - 1
+    
+    double_result = (best_double_font, f"{line1}\n{line2}", 2)
+    
+    # ── AŞAMA 3: Hangisi DAHA BÜYÜK font veriyorsa onu seç ──
+    if double_result[0] > single_result[0]:
+        final_font, final_text, final_lines = double_result
+    else:
+        final_font, final_text, final_lines = single_result
+    
+    # ── AŞAMA 4: GÜVENLİK KONTROLÜ ──
+    # Her satırı ayrı ayrı ölç, en geniş olanı bul
+    lines = final_text.split('\n')
+    max_line_width = 0
+    for line in lines:
+        line_width = measure_text_width(line, font_name, final_font, bold=False)
+        if line_width > max_line_width:
+            max_line_width = line_width
+    
+    # Eğer en geniş satır %95'ten fazla yer kaplıyorsa fontu küçült
+    if max_line_width > max_width_px * 0.95:
+        # Sığana kadar %10'ar küçült
+        while max_line_width > max_width_px * 0.95 and final_font > min_font:
+            final_font = int(final_font * 0.90)
+            max_line_width = measure_text_width(
+                max(lines, key=len), font_name, final_font, bold=False
+            )
+    
+    # Yükseklik kontrolü
+    total_height = get_line_height(font_name, final_font) * final_lines
+    if total_height > max_height_px:
+        while total_height > max_height_px and final_font > min_font:
+            final_font -= 1
+            total_height = get_line_height(font_name, final_font) * final_lines
+    
+    return final_font, final_text, final_lines
+    """
+    Metni widget alanına KESİN olarak sığdır.
+    
+    Algoritma:
+    1. Tek satırda en büyük fontu bul (binary search)
+    2. Metni boşluktan ikiye böl, 2 satır için en büyük fontu bul
+    3. Hangisi DAHA BÜYÜK font veriyorsa onu seç
     
     Tek kelimelik metinler → sadece tek satır denenir.
     ASLA widget boyutunu geçmez.

@@ -7,27 +7,6 @@
     "list": "IELTS"
   },
   {
-    "en": "excited",
-    "tr": "heyecanlı",
-    "sentence": "",
-    "sentence_tr": "",
-    "list": "Kullanıcı Listesi"
-  },
-  {
-    "en": "spicy",
-    "tr": "acılı",
-    "sentence": "",
-    "sentence_tr": "",
-    "list": "Kullanıcı Listesi"
-  },
-  {
-    "en": "enough",
-    "tr": "yeterince",
-    "sentence": "",
-    "sentence_tr": "",
-    "list": "Kullanıcı Listesi"
-  },
-  {
     "en": "available",
     "tr": "müsait mevcut kullanılabilir",
     "sentence": "",
@@ -61,5 +40,68 @@
     "sentence": "",
     "sentence_tr": "",
     "list": "IELTS"
+  },
+  {
+    "en": "skill",
+    "tr": "beceri Yetenek",
+    "sentence": "",
+    "sentence_tr": "",
+    "list": "Kullanıcı Listesi"
+  },
+  {
+    "en": "'Together'",
+    "tr": "birlikte",
+    "sentence": "",
+    "sentence_tr": "",
+    "list": "Kullanıcı Listesi"
+  },
+  {
+    "en": "well",
+    "tr": "İyi",
+    "sentence": "",
+    "sentence_tr": "",
+    "list": "Kullanıcı Listesi"
+  },
+  {
+    "en": "Round",
+    "tr": "yuvarlak",
+    "sentence": "",
+    "sentence_tr": "",
+    "list": "Kullanıcı Listesi"
+  },
+  {
+    "en": "here is",
+    "tr": "İşte burada buyur",
+    "sentence": "",
+    "sentence_tr": "",
+    "list": "Kullanıcı Listesi"
+  },
+  {
+    "en": "İmportant",
+    "tr": "önemli",
+    "sentence": "",
+    "sentence_tr": "",
+    "list": "Kullanıcı Listesi"
+  },
+  {
+    "en": "upset",
+    "tr": "üzgün incinmiş kızmak",
+    "sentence": "",
+    "sentence_tr": "",
+    "list": "Kullanıcı Listesi"
+  },
+  {
+    "en": "take care",
+    "tr": "iyi bak dikkat et",
+    "sentence": "",
+    "sentence_tr": "",
+    "list": "Kullanıcı Listesi"
+  },
+  {
+    "en": "good to see you",
+    "tr": "seni.görmek güzel",
+    "sentence": "",
+    "sentence_tr": "",
+    "list": "Kullanıcı Listesi"
   }
 ]
